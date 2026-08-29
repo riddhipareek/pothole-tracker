@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FixMyRoad — Report a Pothole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="report">
+    <header class="site-header">
+      <div class="nav-inner">
+        <a class="brand" href="map.html">
+          <span class="brand-dot"></span>
+          FixMyRoad
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="map.html">Map</a>
+          <a href="report.html">Report Pothole</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">No login required</p>
+          <h1>Report a pothole</h1>
+          <p class="lede">
+            Drop a pin, add a short description, and optionally attach a photo.
+            Your report appears on the public map.
+          </p>
+        </div>
+      </div>
+
+      <div id="form-banner" class="banner info" hidden></div>
+
+      <form id="report-form" class="form-grid">
+        <section class="form-card">
+          <label>Location</label>
+          <p class="help">Click the map to drop a pin, or use your current location.</p>
+          <div id="report-map" class="report-map"></div>
+          <button type="button" class="btn btn-secondary" id="use-location">
+            Use my location
+          </button>
+          <input type="hidden" id="lat" name="lat" />
+          <input type="hidden" id="lng" name="lng" />
+        </section>
+
+        <section class="form-card">
+          <label for="description">What should crews know?</label>
+          <textarea
+            id="description"
+            name="description"
+            required
+            maxlength="400"
+            placeholder="Example: Deep hole in the left lane, fills with water after rain."
+          ></textarea>
+
+          <label for="severity">Severity</label>
+          <select id="severity" name="severity">
+            <option value="low">Low — annoying but passable</option>
+            <option value="medium" selected>Medium — drivers swerve</option>
+            <option value="high">High — vehicle damage risk</option>
+          </select>
+
+          <label for="photo">Photo (optional, under 200 KB for local save)</label>
+          <input id="photo" name="photo" type="file" accept="image/*" />
+          <img id="photo-preview" class="thumb" alt="Photo preview" hidden />
+
+          <button type="submit" class="btn btn-primary">Submit report</button>
+        </section>
+      </form>
+    </main>
+
+    <footer class="site-footer">FixMyRoad · crowdsourced road accountability</footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
