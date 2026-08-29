@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
+/**
+ * Top navigation.
+ * The logo always goes home. Map / Report / About are React Router links
+ * so teammates can later replace the placeholder pages without changing this nav.
+ */
 const links = [
-  { to: '/', label: 'Home' },
   { to: '/map', label: 'Map' },
   { to: '/report', label: 'Report Pothole' },
   { to: '/about', label: 'About' },
@@ -11,6 +15,7 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
+  // Lock page scroll while the mobile menu is open.
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -39,16 +44,11 @@ export default function Navbar() {
               className={({ isActive }) =>
                 isActive ? 'nav-link is-active' : 'nav-link'
               }
-              end={link.to === '/'}
             >
               {link.label}
             </NavLink>
           ))}
         </nav>
-
-        <Link to="/report" className="nav-cta">
-          Report a pothole
-        </Link>
 
         <button
           type="button"
@@ -64,11 +64,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      <div
-        id="mobile-menu"
-        className={`mobile-menu ${open ? 'is-open' : ''}`}
-        hidden={!open}
-      >
+      <div id="mobile-menu" className="mobile-menu" hidden={!open}>
         <nav aria-label="Mobile">
           {links.map((link) => (
             <NavLink
@@ -77,15 +73,11 @@ export default function Navbar() {
               className={({ isActive }) =>
                 isActive ? 'mobile-link is-active' : 'mobile-link'
               }
-              end={link.to === '/'}
               onClick={() => setOpen(false)}
             >
               {link.label}
             </NavLink>
           ))}
-          <Link to="/report" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
-            Report a pothole
-          </Link>
         </nav>
       </div>
     </header>

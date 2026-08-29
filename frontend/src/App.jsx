@@ -1,3 +1,8 @@
+/**
+ * App.jsx is the layout wrapper.
+ * Navbar and Footer stay on every page. The <Routes> block decides
+ * which page component to show based on the URL.
+ */
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'

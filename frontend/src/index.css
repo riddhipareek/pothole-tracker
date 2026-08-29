@@ -174,24 +174,6 @@ a {
   outline: none;
 }
 
-.nav-cta {
-  display: none;
-  margin-left: 8px;
-  text-decoration: none;
-  background: var(--asphalt);
-  color: var(--white);
-  font-weight: 700;
-  padding: 10px 16px;
-  border-radius: 999px;
-}
-
-.nav-cta:hover,
-.nav-cta:focus-visible {
-  background: #000;
-  outline: 3px solid var(--amber);
-  outline-offset: 2px;
-}
-
 .menu-toggle {
   margin-left: auto;
   width: 44px;
@@ -240,10 +222,6 @@ a {
   gap: 6px;
 }
 
-.mobile-cta {
-  margin-top: 12px;
-  justify-content: center;
-}
 
 .section,
 .hero,
@@ -426,7 +404,6 @@ a {
 }
 
 .feature-icon {
-  font-size: 1.6rem;
   display: inline-flex;
   width: 52px;
   height: 52px;
@@ -434,7 +411,13 @@ a {
   align-items: center;
   justify-content: center;
   background: rgba(245, 179, 1, 0.16);
+  color: var(--asphalt);
   margin-bottom: 12px;
+}
+
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .section-dark {
@@ -493,9 +476,16 @@ a {
 
 .legend li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   font-weight: 600;
+}
+
+.legend-detail {
+  display: block;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .legend-dot,
@@ -622,10 +612,6 @@ a {
 @media (min-width: 800px) {
   .nav-desktop {
     display: flex;
-  }
-
-  .nav-cta {
-    display: inline-flex;
   }
 
   .menu-toggle,
