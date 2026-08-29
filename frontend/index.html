@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FixMyRoad · Map</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">FixMyRoad</p>
+        <h1>Pothole map</h1>
+      </div>
+      <nav class="nav">
+        <a class="nav-link is-active" href="index.html">Map</a>
+        <a class="btn" href="report.html">Report a pothole</a>
+      </nav>
+    </header>
+
+    <div id="map"></div>
+
+    <aside class="legend">
+      <p><span class="dot high"></span> High</p>
+      <p><span class="dot medium"></span> Medium</p>
+      <p><span class="dot low"></span> Low</p>
+      <p><span class="dot fixed"></span> Fixed</p>
+    </aside>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
